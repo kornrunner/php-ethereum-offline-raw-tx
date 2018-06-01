@@ -12,7 +12,8 @@
     "require": {
         "php": ">=7.1.0",
         "kornrunner/keccak": "^1.0",
-        "web3p/rlp": "^0.2.1"
+        "web3p/rlp": "^0.2.1",
+        "web3p/secp256k1": "^0.2.0"
     },
     "autoload": {
         "psr-4": {
@@ -27,5 +28,7 @@
     "require-dev": {
         "phpunit/phpunit": "~7",
         "php-coveralls/php-coveralls": "^2.1"
-    }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }
