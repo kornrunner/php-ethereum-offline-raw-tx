@@ -15,7 +15,7 @@
         "web3p/rlp": "^0.2.1",
         "web3p/secp256k1": "^0.2.0",
         "simplito/elliptic-php": "^1.0",
-        "ext-gmp": "^7.2"
+        "ext-gmp": "*"
     },
     "autoload": {
         "psr-4": {

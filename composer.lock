@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3be448495550cf08cc4f96b6c72dd7d9",
+    "content-hash": "d36c7ca47900b4da8575a7b7f061a79d",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -2579,7 +2579,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.1.0",
-        "ext-gmp": "^7.2"
+        "ext-gmp": "*"
     },
     "platform-dev": []
 }
