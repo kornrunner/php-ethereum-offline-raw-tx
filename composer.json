@@ -1,7 +1,7 @@
 {
     "name": "kornrunner/ethereum-offline-tx",
     "description": "Pure PHP Ethereum Offline Transaction Signer",
-    "keywords": ["ethereum", "offline", "transaction"],
+    "keywords": ["ethereum", "offline", "transaction", "eth", "tx"],
     "license": "MIT",
     "authors": [
         {
