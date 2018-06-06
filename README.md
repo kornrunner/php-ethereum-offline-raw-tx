@@ -1,13 +1,13 @@
 # php-ethereum-offline-tx [![Build Status](https://travis-ci.org/kornrunner/php-ethereum-offline-tx.svg?branch=master)](https://travis-ci.org/kornrunner/php-ethereum-offline-tx)  [![Coverage Status](https://coveralls.io/repos/github/kornrunner/php-ethereum-offline-tx/badge.svg?branch=master)](https://coveralls.io/github/kornrunner/php-ethereum-offline-tx?branch=master)
 
-Pure PHP Ethereum Offline Transaction Signer
+Pure PHP Ethereum Offline Raw Transaction Signer
 
 Ethereum raw transaction hash offline in PHP
 
 ## Installation
 
 ```sh
-$ composer require kornrunner/ethereum-offline-tx
+$ composer require kornrunner/ethereum-offline-raw-tx
 ```
 
 ## Usage
