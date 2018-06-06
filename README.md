@@ -1,4 +1,4 @@
-# php-ethereum-offline-tx [![Build Status](https://travis-ci.org/kornrunner/php-ethereum-offline-raw-tx.svg?branch=master)](https://travis-ci.org/kornrunner/php-ethereum-offline-raw-tx)  [![Coverage Status](https://coveralls.io/repos/github/kornrunner/php-ethereum-offline-raw--tx/badge.svg?branch=master)](https://coveralls.io/github/kornrunner/php-ethereum-offline-raw-tx?branch=master)
+# php-ethereum-offline-tx [![Build Status](https://travis-ci.org/kornrunner/php-ethereum-offline-raw-tx.svg?branch=master)](https://travis-ci.org/kornrunner/php-ethereum-offline-raw-tx) [![Coverage Status](https://coveralls.io/repos/github/kornrunner/php-ethereum-offline-raw-tx/badge.svg?branch=master)](https://coveralls.io/github/kornrunner/php-ethereum-offline-raw-tx?branch=master)
 
 Pure PHP Ethereum Offline Raw Transaction Signer
 
