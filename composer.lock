@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84318852160d6af2d6e09f49df1404b0",
+    "content-hash": "96577a08447da6f1f6a0fd2a34a1e5e4",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -120,17 +120,57 @@
             "time": "2018-03-05T10:32:01+00:00"
         },
         {
-            "name": "mdanter/ecc",
-            "version": "dev-master",
+            "name": "kornrunner/secp256k1",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpecc/phpecc.git",
-                "reference": "7c77251d3a7f52ef4ebc1c023452aad96ab13c83"
+                "url": "https://github.com/kornrunner/secp256k1.git",
+                "reference": "9cac550d625222bda53ab3cbc35248771b52ab82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/7c77251d3a7f52ef4ebc1c023452aad96ab13c83",
-                "reference": "7c77251d3a7f52ef4ebc1c023452aad96ab13c83",
+                "url": "https://api.github.com/repos/kornrunner/secp256k1/zipball/9cac550d625222bda53ab3cbc35248771b52ab82",
+                "reference": "9cac550d625222bda53ab3cbc35248771b52ab82",
+                "shasum": ""
+            },
+            "require": {
+                "mdanter/ecc": "~0.5",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "kornrunner\\Secp256k1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Boris Momčilović",
+                    "email": "boris.momcilovic@gmail.com"
+                }
+            ],
+            "description": "Puse PHP secp256k1",
+            "time": "2018-06-11T16:55:01+00:00"
+        },
+        {
+            "name": "mdanter/ecc",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpecc/phpecc.git",
+                "reference": "ed5c6d496f5310de1b7071b8375fafa3559a1344"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/ed5c6d496f5310de1b7071b8375fafa3559a1344",
+                "reference": "ed5c6d496f5310de1b7071b8375fafa3559a1344",
                 "shasum": ""
             },
             "require": {
@@ -189,154 +229,20 @@
                 "secp256k1",
                 "secp256r1"
             ],
-            "time": "2018-02-12T08:51:13+00:00"
-        },
-        {
-            "name": "simplito/bigint-wrapper-php",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/simplito/bigint-wrapper-php.git",
-                "reference": "cf21ec76d33f103add487b3eadbd9f5033a25930"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/simplito/bigint-wrapper-php/zipball/cf21ec76d33f103add487b3eadbd9f5033a25930",
-                "reference": "cf21ec76d33f103add487b3eadbd9f5033a25930",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "BI\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simplito Team",
-                    "email": "s.smyczynski@simplito.com",
-                    "homepage": "https://simplito.com"
-                }
-            ],
-            "description": "Common interface for php_gmp and php_bcmath modules",
-            "time": "2018-02-27T12:38:08+00:00"
-        },
-        {
-            "name": "simplito/bn-php",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/simplito/bn-php.git",
-                "reference": "e852fcd27e4acbc32459606d7606e45a85e42465"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/simplito/bn-php/zipball/e852fcd27e4acbc32459606d7606e45a85e42465",
-                "reference": "e852fcd27e4acbc32459606d7606e45a85e42465",
-                "shasum": ""
-            },
-            "require": {
-                "simplito/bigint-wrapper-php": "~1.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "BN\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simplito Team",
-                    "email": "s.smyczynski@simplito.com",
-                    "homepage": "https://simplito.com"
-                }
-            ],
-            "description": "Big number implementation compatible with bn.js",
-            "time": "2018-04-12T11:07:43+00:00"
-        },
-        {
-            "name": "simplito/elliptic-php",
-            "version": "1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/simplito/elliptic-php.git",
-                "reference": "be6b14c6999a5c328457d571f643ef8b3f3f82d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/simplito/elliptic-php/zipball/be6b14c6999a5c328457d571f643ef8b3f3f82d0",
-                "reference": "be6b14c6999a5c328457d571f643ef8b3f3f82d0",
-                "shasum": ""
-            },
-            "require": {
-                "ext-gmp": "*",
-                "simplito/bn-php": "~1.1.0"
-            },
-            "require-dev": {
-                "phpbench/phpbench": "@dev",
-                "phpunit/phpunit": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Elliptic\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simplito Team",
-                    "email": "s.smyczynski@simplito.com",
-                    "homepage": "https://simplito.com"
-                }
-            ],
-            "description": "Fast elliptic curve cryptography",
-            "homepage": "https://github.com/simplito/elliptic-php",
-            "keywords": [
-                "Curve25519",
-                "ECDSA",
-                "Ed25519",
-                "EdDSA",
-                "cryptography",
-                "curve",
-                "ecc",
-                "ecdh",
-                "elliptic",
-                "nistp192",
-                "nistp224",
-                "nistp256",
-                "nistp384",
-                "nistp521",
-                "secp256k1"
-            ],
-            "time": "2018-05-11T07:40:56+00:00"
+            "time": "2017-10-09T16:05:37+00:00"
         },
         {
             "name": "web3p/rlp",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web3p/rlp.git",
-                "reference": "930dbea923cafe8705a64f261ac544c92b1ccb6e"
+                "reference": "1d0ebb4cb3baf5c45d0c653aecbe3f8daffd3bcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web3p/rlp/zipball/930dbea923cafe8705a64f261ac544c92b1ccb6e",
-                "reference": "930dbea923cafe8705a64f261ac544c92b1ccb6e",
+                "url": "https://api.github.com/repos/web3p/rlp/zipball/1d0ebb4cb3baf5c45d0c653aecbe3f8daffd3bcd",
+                "reference": "1d0ebb4cb3baf5c45d0c653aecbe3f8daffd3bcd",
                 "shasum": ""
             },
             "require-dev": {
@@ -359,46 +265,7 @@
                 }
             ],
             "description": "Recursive Length Prefix Encoding in PHP.",
-            "time": "2018-04-20T08:41:43+00:00"
-        },
-        {
-            "name": "web3p/secp256k1",
-            "version": "v0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/web3p/secp256k1.git",
-                "reference": "f63f4e88de662311f114b510a1c17a460e20dbf2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/web3p/secp256k1/zipball/f63f4e88de662311f114b510a1c17a460e20dbf2",
-                "reference": "f63f4e88de662311f114b510a1c17a460e20dbf2",
-                "shasum": ""
-            },
-            "require": {
-                "mdanter/ecc": "dev-master"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Web3p\\Secp256k1\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "sc0Vu",
-                    "email": "alk03073135@gmail.com"
-                }
-            ],
-            "description": "Ethereum secp256k1 library in PHP.",
-            "time": "2018-03-20T02:37:13+00:00"
+            "time": "2018-06-10T09:55:27+00:00"
         }
     ],
     "packages-dev": [
@@ -1150,16 +1017,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "e20525b0c2945c7c317fff95660698cb3d2a53bc"
+                "reference": "cecbc684605bb0cc288828eb5d65d93d5c676d3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/e20525b0c2945c7c317fff95660698cb3d2a53bc",
-                "reference": "e20525b0c2945c7c317fff95660698cb3d2a53bc",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/cecbc684605bb0cc288828eb5d65d93d5c676d3c",
+                "reference": "cecbc684605bb0cc288828eb5d65d93d5c676d3c",
                 "shasum": ""
             },
             "require": {
@@ -1193,7 +1060,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2018-05-28T12:13:49+00:00"
+            "time": "2018-06-11T11:44:00+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1626,16 +1493,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "e09160918c66281713f1c324c1f4c4c3037ba1e8"
+                "reference": "366541b989927187c4ca70490a35615d3fef2dce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/e09160918c66281713f1c324c1f4c4c3037ba1e8",
-                "reference": "e09160918c66281713f1c324c1f4c4c3037ba1e8",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/366541b989927187c4ca70490a35615d3fef2dce",
+                "reference": "366541b989927187c4ca70490a35615d3fef2dce",
                 "shasum": ""
             },
             "require": {
@@ -1678,7 +1545,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-02-01T13:45:15+00:00"
+            "time": "2018-06-10T07:54:39+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -2578,8 +2445,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.0",
-        "ext-gmp": "*"
+        "php": ">=7.1.0"
     },
     "platform-dev": []
 }

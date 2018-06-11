@@ -2,11 +2,10 @@
 
 namespace kornrunner\Ethereum;
 
-use Elliptic\EC;
 use kornrunner\Keccak;
+use kornrunner\Secp256k1\Secp256k1;
 use RuntimeException;
 use Web3p\RLP\RLP;
-use Web3p\Secp256k1\Secp256k1;
 
 class Transaction {
     protected $nonce;
@@ -68,7 +67,7 @@ class Transaction {
 
         $this->r   = $this->hexup(gmp_strval($signed->getR(), 16));
         $this->s   = $this->hexup(gmp_strval($signed->getS(), 16));
-        $this->v   = dechex ($this->getRecoveryParam ($hash, $privateKey) + 27 + ($chainId ? $chainId * 2 + 8 : 0));
+        $this->v   = dechex ($signed->getRecoveryParam ($hash, $privateKey) + 27 + ($chainId ? $chainId * 2 + 8 : 0));
     }
 
     protected function hash(int $chainId): string {
@@ -98,12 +97,6 @@ class Transaction {
         }
 
         return $rlp->encode($data)->toString('hex');
-    }
-
-    private function getRecoveryParam(string $message, string $privateKey): int {
-        $ec  = new EC('secp256k1');
-        $key = $ec->keyFromPrivate($privateKey, 16);
-        return $ec->getKeyRecoveryParam($message, ['r' => $this->r, 's' => $this->s], $key->getPublic());
     }
 
     private function hexup(string $value): string {
