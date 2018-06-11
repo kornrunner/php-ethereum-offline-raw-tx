@@ -3,7 +3,7 @@
 namespace kornrunner\Ethereum;
 
 use kornrunner\Keccak;
-use kornrunner\Secp256k1\Secp256k1;
+use kornrunner\Secp256k1;
 use RuntimeException;
 use Web3p\RLP\RLP;
 

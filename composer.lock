@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96577a08447da6f1f6a0fd2a34a1e5e4",
+    "content-hash": "ea99a5458e7afeed56c6fc345ae99ad9",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -121,29 +121,31 @@
         },
         {
             "name": "kornrunner/secp256k1",
-            "version": "0.0.1",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kornrunner/secp256k1.git",
-                "reference": "9cac550d625222bda53ab3cbc35248771b52ab82"
+                "url": "https://github.com/kornrunner/php-secp256k1.git",
+                "reference": "e25345edd9bbe25ebeb744bdb772cd904d9e3998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kornrunner/secp256k1/zipball/9cac550d625222bda53ab3cbc35248771b52ab82",
-                "reference": "9cac550d625222bda53ab3cbc35248771b52ab82",
+                "url": "https://api.github.com/repos/kornrunner/php-secp256k1/zipball/e25345edd9bbe25ebeb744bdb772cd904d9e3998",
+                "reference": "e25345edd9bbe25ebeb744bdb772cd904d9e3998",
                 "shasum": ""
             },
             "require": {
+                "ext-gmp": "*",
                 "mdanter/ecc": "~0.5",
                 "php": ">=7.1"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "kornrunner\\Secp256k1\\": "src/"
+                    "kornrunner\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -157,7 +159,7 @@
                 }
             ],
             "description": "Puse PHP secp256k1",
-            "time": "2018-06-11T16:55:01+00:00"
+            "time": "2018-06-11T20:43:37+00:00"
         },
         {
             "name": "mdanter/ecc",
@@ -2440,9 +2442,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.1.0"
