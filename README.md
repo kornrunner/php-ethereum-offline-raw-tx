@@ -24,8 +24,7 @@ $value    = '2a45907d1bef7c00';
 $privateKey = 'b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e898';
 
 $transaction = new Transaction ($nonce, $gasPrice, $gasLimit, $to, $value);
-$transaction->sign ($privateKey);
-$transaction->getRaw ();
+$transaction->getRaw ($privateKey);
 // f86d048503f5476a0083027f4b941a8c8adfbe1c59e8b58cc0d515f07b7225f51c72882a45907d1bef7c00801ba0e68be766b40702e6d9c419f53d5e053c937eda36f0e973074d174027439e2b5da0790df3e4d0294f92d69104454cd96005e21095efd5f2970c2829736ca39195d8
 ```
 
