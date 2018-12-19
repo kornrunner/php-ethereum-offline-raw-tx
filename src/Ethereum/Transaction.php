@@ -93,7 +93,8 @@ class Transaction {
 
         $data = [];
         foreach ($input as $item) {
-            $data[] = $item ? '0x' . $this->hexup($item) : '';
+            $value  = strpos ($item, '0x') !== false ? substr ($item, 2) : $item;
+            $data[] = $value ? '0x' . $this->hexup($value) : '';
         }
 
         return $rlp->encode($data)->toString('hex');
