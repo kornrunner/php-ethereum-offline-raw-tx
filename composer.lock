@@ -123,25 +123,25 @@
         },
         {
             "name": "kornrunner/secp256k1",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kornrunner/php-secp256k1.git",
-                "reference": "24cc0bbac3405040e2f160f58e6fc2b6d9fe7a7c"
+                "reference": "915f0ef1ec748606a1117b171093266de349b058"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kornrunner/php-secp256k1/zipball/24cc0bbac3405040e2f160f58e6fc2b6d9fe7a7c",
-                "reference": "24cc0bbac3405040e2f160f58e6fc2b6d9fe7a7c",
+                "url": "https://api.github.com/repos/kornrunner/php-secp256k1/zipball/915f0ef1ec748606a1117b171093266de349b058",
+                "reference": "915f0ef1ec748606a1117b171093266de349b058",
                 "shasum": ""
             },
             "require": {
-                "mdanter/ecc": "~0.5",
+                "mdanter/ecc": "^0.5",
                 "php": ">=7.1"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "~7"
+                "phpunit/phpunit": "^7"
             },
             "type": "library",
             "autoload": {
@@ -160,7 +160,13 @@
                 }
             ],
             "description": "Pure PHP secp256k1",
-            "time": "2018-07-25T13:32:20+00:00"
+            "keywords": [
+                "curve",
+                "ecc",
+                "elliptic",
+                "secp256k1"
+            ],
+            "time": "2019-01-16T17:01:51+00:00"
         },
         {
             "name": "mdanter/ecc",
