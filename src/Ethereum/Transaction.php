@@ -42,6 +42,10 @@ class Transaction {
     }
 
     public function getRaw(string $privateKey, int $chainId = 0): string {
+        if ($chainId < 0) {
+            throw new RuntimeException('ChainID must be positive');
+        }
+
         $this->v = '';
         $this->r = '';
         $this->s = '';
@@ -55,11 +59,11 @@ class Transaction {
         return $this->serialize();
     }
 
-    protected function serialize(): string {
+    private function serialize(): string {
         return $this->RLPencode($this->getInput());
     }
 
-    protected function sign(string $privateKey, int $chainId): void {
+    private function sign(string $privateKey, int $chainId): void {
         $hash      = $this->hash($chainId);
 
         $secp256k1 = new Secp256k1();
@@ -70,7 +74,7 @@ class Transaction {
         $this->v   = dechex ($signed->getRecoveryParam ($hash, $privateKey) + 27 + ($chainId ? $chainId * 2 + 8 : 0));
     }
 
-    protected function hash(int $chainId): string {
+    private function hash(int $chainId): string {
         $input = $this->getInput();
 
         if ($chainId > 0) {
@@ -88,12 +92,12 @@ class Transaction {
         return Keccak::hash(hex2bin($encoded), 256);
     }
 
-    protected function RLPencode(array $input): string {
+    private function RLPencode(array $input): string {
         $rlp  = new RLP;
 
         $data = [];
         foreach ($input as $item) {
-            $value  = strpos ($item, '0x') !== false ? substr ($item, 2) : $item;
+            $value  = strpos ($item, '0x') !== false ? substr ($item, strlen ('0x')) : $item;
             $data[] = $value ? '0x' . $this->hexup($value) : '';
         }
 
@@ -101,7 +105,7 @@ class Transaction {
     }
 
     private function hexup(string $value): string {
-        return strlen ($value) % 2 == 1 ? "0{$value}" : $value;
+        return strlen ($value) % 2 === 0 ? $value : "0{$value}";
     }
 
 }
