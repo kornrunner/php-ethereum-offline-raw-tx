@@ -37,6 +37,12 @@ class TransactionTest extends TestCase {
         $this->assertSame($expect, $transaction->getRaw($privateKey, $chainId));
     }
 
+    public function testGetRawBadChainId () {
+        $this->expectException(RuntimeException::class);
+        $transaction = new Transaction ('04', '03f5476a00', '027f4b', '1a8c8adfbe1c59e8b58cc0d515f07b7225f51c72', '2a45907d1bef7c00', '');
+        $transaction->getRaw ('b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e898', -1);
+    }
+
     public static function getRaw (): array {
         return [
             [
