@@ -6,6 +6,7 @@ use kornrunner\Keccak;
 use kornrunner\Secp256k1;
 use RuntimeException;
 use Web3p\RLP\RLP;
+use kornrunner\Signature\Signature;
 
 class Transaction {
     protected $nonce;
@@ -67,11 +68,14 @@ class Transaction {
         $hash      = $this->hash($chainId);
 
         $secp256k1 = new Secp256k1();
+        /**
+         * @var Signature
+         */
         $signed    = $secp256k1->sign($hash, $privateKey);
 
         $this->r   = $this->hexup(gmp_strval($signed->getR(), 16));
         $this->s   = $this->hexup(gmp_strval($signed->getS(), 16));
-        $this->v   = dechex ($signed->getRecoveryParam ($hash, $privateKey) + 27 + ($chainId ? $chainId * 2 + 8 : 0));
+        $this->v   = dechex ((int) $signed->getRecoveryParam () + 27 + ($chainId ? $chainId * 2 + 8 : 0));
     }
 
     private function hash(int $chainId): string {
