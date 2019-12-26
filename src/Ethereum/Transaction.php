@@ -105,7 +105,7 @@ class Transaction {
             $data[] = $value ? '0x' . $this->hexup($value) : '';
         }
 
-        return $rlp->encode($data)->toString('hex');
+        return $rlp->encode($data);
     }
 
     private function hexup(string $value): string {
