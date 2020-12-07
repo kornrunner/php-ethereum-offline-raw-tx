@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.3",
         "kornrunner/keccak": "^1.0",
         "kornrunner/secp256k1": "^0.1",
         "web3p/rlp": "^0.3"
