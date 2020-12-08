@@ -83,25 +83,24 @@
         },
         {
             "name": "kornrunner/keccak",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kornrunner/php-keccak.git",
-                "reference": "ad761f528f4d1e3ce378b8a0841e5f82c9973535"
+                "reference": "433749d28e117fb97baf9f2631b92b5d9ab3c890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kornrunner/php-keccak/zipball/ad761f528f4d1e3ce378b8a0841e5f82c9973535",
-                "reference": "ad761f528f4d1e3ce378b8a0841e5f82c9973535",
+                "url": "https://api.github.com/repos/kornrunner/php-keccak/zipball/433749d28e117fb97baf9f2631b92b5d9ab3c890",
+                "reference": "433749d28e117fb97baf9f2631b92b5d9ab3c890",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.0",
+                "php": ">=7.3",
                 "symfony/polyfill-mbstring": "^1.8"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "~7"
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "autoload": {
@@ -127,9 +126,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kornrunner/php-keccak/issues",
-                "source": "https://github.com/kornrunner/php-keccak/tree/master"
+                "source": "https://github.com/kornrunner/php-keccak/tree/1.1.0"
             },
-            "time": "2018-07-30T22:16:23+00:00"
+            "time": "2020-12-07T15:40:44+00:00"
         },
         {
             "name": "kornrunner/secp256k1",
