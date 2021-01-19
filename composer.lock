@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1e74dd12bb2781c64f3713c0a1a505a",
+    "content-hash": "04be0e0f8f9b6fc07a8971f4cd9ee98b",
     "packages": [
         {
             "name": "fgrosse/phpasn1",
@@ -132,25 +132,24 @@
         },
         {
             "name": "kornrunner/secp256k1",
-            "version": "0.1.2",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kornrunner/php-secp256k1.git",
-                "reference": "915f0ef1ec748606a1117b171093266de349b058"
+                "reference": "c3990dba47c7a8b0c9fd858fb29c61a5794fbb39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kornrunner/php-secp256k1/zipball/915f0ef1ec748606a1117b171093266de349b058",
-                "reference": "915f0ef1ec748606a1117b171093266de349b058",
+                "url": "https://api.github.com/repos/kornrunner/php-secp256k1/zipball/c3990dba47c7a8b0c9fd858fb29c61a5794fbb39",
+                "reference": "c3990dba47c7a8b0c9fd858fb29c61a5794fbb39",
                 "shasum": ""
             },
             "require": {
-                "mdanter/ecc": "^0.5",
-                "php": ">=7.1"
+                "mdanter/ecc": "^1",
+                "php": ">=7.3"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^7"
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
@@ -177,31 +176,31 @@
             ],
             "support": {
                 "issues": "https://github.com/kornrunner/php-secp256k1/issues",
-                "source": "https://github.com/kornrunner/php-secp256k1/tree/master"
+                "source": "https://github.com/kornrunner/php-secp256k1/tree/0.2.0"
             },
-            "time": "2019-01-16T17:01:51+00:00"
+            "time": "2021-01-19T03:30:01+00:00"
         },
         {
             "name": "mdanter/ecc",
-            "version": "v0.5.2",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpecc/phpecc.git",
-                "reference": "b95f25cc1bacc83a9f0ccd375900b7cfd343029e"
+                "reference": "34e2eec096bf3dcda814e8f66dd91ae87a2db7cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/b95f25cc1bacc83a9f0ccd375900b7cfd343029e",
-                "reference": "b95f25cc1bacc83a9f0ccd375900b7cfd343029e",
+                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/34e2eec096bf3dcda814e8f66dd91ae87a2db7cd",
+                "reference": "34e2eec096bf3dcda814e8f66dd91ae87a2db7cd",
                 "shasum": ""
             },
             "require": {
                 "ext-gmp": "*",
                 "fgrosse/phpasn1": "^2.0",
-                "php": "^7.0"
+                "php": "^7.0||^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0",
+                "phpunit/phpunit": "^6.0||^8.0||^9.0",
                 "squizlabs/php_codesniffer": "^2.0",
                 "symfony/yaml": "^2.6|^3.0"
             },
@@ -253,9 +252,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpecc/phpecc/issues",
-                "source": "https://github.com/phpecc/phpecc/tree/master"
+                "source": "https://github.com/phpecc/phpecc/tree/v1.0.0"
             },
-            "time": "2018-12-03T18:17:01+00:00"
+            "time": "2021-01-16T19:42:14+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
