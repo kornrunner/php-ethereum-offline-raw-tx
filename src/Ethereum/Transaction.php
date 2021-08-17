@@ -82,7 +82,7 @@ class Transaction {
         $input = $this->getInput();
 
         if ($chainId > 0) {
-            $input['v'] = $chainId;
+            $input['v'] = dechex($chainId);
             $input['r'] = '';
             $input['s'] = '';
         } else {
