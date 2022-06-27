@@ -96,20 +96,24 @@ class Transaction {
         return Keccak::hash(hex2bin($encoded), 256);
     }
 
-    private function RLPencode(array $input): string {
+    protected function RLPencode(array $input): string {
         $rlp  = new RLP;
-
-        $data = [];
-        foreach ($input as $item) {
-            $value  = strpos ($item, '0x') !== false ? substr ($item, strlen ('0x')) : $item;
-            $data[] = $value ? '0x' . $this->hexup($value) : '';
-        }
-
+        $data = $this->hexup($input);
         return $rlp->encode($data);
     }
 
-    private function hexup(string $value): string {
-        return strlen ($value) % 2 === 0 ? $value : "0{$value}";
+    protected function hexup($value) {
+        if (is_array($value)) {
+            $data = [];
+            foreach ($value as $item) {
+                $data[] = $this->hexup($item);
+            }
+            return $data;
+        }
+        else {
+            $value  = strpos ($value, '0x') !== false ? substr ($value, strlen ('0x')) : $value;
+            return $value ? '0x' . (strlen ($value) % 2 === 0 ? $value : "0{$value}") : '';
+        }
     }
 
 }
