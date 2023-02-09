@@ -5,7 +5,7 @@ namespace kornrunner\Ethereum;
 use kornrunner\Keccak;
 use kornrunner\Secp256k1;
 use RuntimeException;
-use Web3p\RLP\RLP;
+use kornrunner\RLP\RLP;
 use kornrunner\Signature\Signature;
 
 class EIP1559Transaction
