@@ -10,9 +10,9 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "kornrunner/keccak": "^1.0",
-        "kornrunner/secp256k1": "^0.2|^0.3",
+        "kornrunner/secp256k1": "^0.3",
         "kornrunner/rlp": "^0.3"
     },
     "autoload": {
