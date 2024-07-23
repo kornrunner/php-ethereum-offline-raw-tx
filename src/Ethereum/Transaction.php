@@ -64,6 +64,22 @@ class Transaction {
         return $this->RLPencode($this->getInput());
     }
 
+    public function getUnsigned(int $chainId = 0): string {
+        $input = $this->getInput();
+
+        if ($chainId > 0) {
+            $input['v'] = dechex($chainId);
+            $input['r'] = '';
+            $input['s'] = '';
+        } else {
+            unset($input['v']);
+            unset($input['r']);
+            unset($input['s']);
+        }
+
+        return $this->RLPencode($input);
+    }
+
     private function sign(string $privateKey, int $chainId): void {
         $hash      = $this->hash($chainId);
 
@@ -78,7 +94,7 @@ class Transaction {
         $this->v   = dechex ((int) $signed->getRecoveryParam () + 27 + ($chainId ? $chainId * 2 + 8 : 0));
     }
 
-    private function hash(int $chainId): string {
+    public function hash(int $chainId): string {
         $input = $this->getInput();
 
         if ($chainId > 0) {

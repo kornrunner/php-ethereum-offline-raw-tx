@@ -79,6 +79,18 @@ class EIP1559Transaction
         return $this->txType . $this->RLPencode($this->getInput());
     }
 
+    public function getUnsigned(int $chainId = 0): string {
+        $this->chainId = dechex($chainId);
+        
+        $input = $this->getInput();
+
+        unset($input['v']);
+        unset($input['r']);
+        unset($input['s']);
+
+        return $this->txType . $this->RLPencode($input);
+    }
+
     private function sign(string $privateKey): void
     {
         $hash = $this->hash();
@@ -93,7 +105,7 @@ class EIP1559Transaction
         $this->v = dechex((int)$signed->getRecoveryParam());
     }
 
-    private function hash(): string
+    public function hash(): string
     {
         $input = $this->getInput();
 
