@@ -69,7 +69,7 @@ class EIP1559Transaction
             throw new RuntimeException('Incorrect private key');
         }
 
-        $this->sign($privateKey);
+        $this->sign($privateKey, $chainId);
 
         return $this->serialize();
     }
@@ -79,9 +79,14 @@ class EIP1559Transaction
         return $this->txType . $this->RLPencode($this->getInput());
     }
 
-    public function getUnsigned(int $chainId = 0): string {
+    public function getUnsigned(int $chainId = 0): string
+    {
+        if ($chainId < 0) {
+            throw new RuntimeException('ChainID must be positive');
+        }
+
         $this->chainId = dechex($chainId);
-        
+
         $input = $this->getInput();
 
         unset($input['v']);
@@ -91,9 +96,9 @@ class EIP1559Transaction
         return $this->txType . $this->RLPencode($input);
     }
 
-    private function sign(string $privateKey): void
+    private function sign(string $privateKey, int $chainId = 0): void
     {
-        $hash = $this->hash();
+        $hash = $this->hash($chainId);
 
         $secp256k1 = new Secp256k1();
         /**
@@ -105,8 +110,13 @@ class EIP1559Transaction
         $this->v = dechex((int)$signed->getRecoveryParam());
     }
 
-    public function hash(): string
+    public function hash(int $chainId = 0): string
     {
+        if ($chainId < 0) {
+            throw new RuntimeException('ChainID must be positive');
+        }
+
+        $this->chainId = dechex($chainId);
         $input = $this->getInput();
 
         unset($input['v']);
