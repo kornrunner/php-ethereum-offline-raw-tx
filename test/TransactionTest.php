@@ -44,7 +44,7 @@ class TransactionTest extends TestCase
     /**
      * @dataProvider getTransactionData
      */
-    public function getUnsigned($txid, $unsigned, $signed, $privateKey, $chainId, $nonce, $gasPrice, $gasLimit, $to, $value, $data)
+    public function testGetUnsigned($txid, $unsigned, $signed, $privateKey, $chainId, $nonce, $gasPrice, $gasLimit, $to, $value, $data)
     {
         $transaction = new Transaction($nonce, $gasPrice, $gasLimit, $to, $value, $data);
         $this->assertSame($unsigned, $transaction->getUnsigned($chainId));
