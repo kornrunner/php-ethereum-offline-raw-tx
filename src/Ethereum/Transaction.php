@@ -19,7 +19,8 @@ class Transaction {
     protected $s = '';
     protected $v = '';
 
-    public function __construct(string $nonce = '', string $gasPrice = '', string $gasLimit = '', string $to = '', string $value = '', string $data = '') {
+    public function __construct(string $nonce = '', string $gasPrice = '', string $gasLimit = '', string $to = '', string $value = '', string $data = '')
+    {
         $this->nonce = $nonce;
         $this->gasPrice = $gasPrice;
         $this->gasLimit = $gasLimit;
@@ -28,7 +29,8 @@ class Transaction {
         $this->data = $data;
     }
 
-    public function getInput(): array {
+    public function getInput(): array
+    {
         return [
             'nonce' => $this->nonce,
             'gasPrice' => $this->gasPrice,
@@ -42,7 +44,8 @@ class Transaction {
         ];
     }
 
-    public function getRaw(string $privateKey, int $chainId = 0): string {
+    public function getRaw(string $privateKey, int $chainId = 0): string
+    {
         if ($chainId < 0) {
             throw new RuntimeException('ChainID must be positive');
         }
@@ -60,11 +63,13 @@ class Transaction {
         return $this->serialize();
     }
 
-    private function serialize(): string {
+    private function serialize(): string
+    {
         return $this->RLPencode($this->getInput());
     }
 
-    public function getUnsigned(int $chainId = 0): string {
+    public function getUnsigned(int $chainId = 0): string
+    {
         $input = $this->getInput();
 
         if ($chainId > 0) {
@@ -80,7 +85,8 @@ class Transaction {
         return $this->RLPencode($input);
     }
 
-    private function sign(string $privateKey, int $chainId): void {
+    private function sign(string $privateKey, int $chainId = 0): void
+    {
         $hash      = $this->hash($chainId);
 
         $secp256k1 = new Secp256k1();
@@ -94,7 +100,8 @@ class Transaction {
         $this->v   = dechex ((int) $signed->getRecoveryParam () + 27 + ($chainId ? $chainId * 2 + 8 : 0));
     }
 
-    public function hash(int $chainId): string {
+    public function hash(int $chainId = 0): string
+    {
         $input = $this->getInput();
 
         if ($chainId > 0) {
@@ -112,7 +119,8 @@ class Transaction {
         return Keccak::hash(hex2bin($encoded), 256);
     }
 
-    private function RLPencode(array $input): string {
+    private function RLPencode(array $input): string
+    {
         $rlp  = new RLP;
 
         $data = [];
@@ -124,7 +132,8 @@ class Transaction {
         return $rlp->encode($data);
     }
 
-    private function hexup(string $value): string {
+    private function hexup(string $value): string
+    {
         return strlen ($value) % 2 === 0 ? $value : "0{$value}";
     }
 
