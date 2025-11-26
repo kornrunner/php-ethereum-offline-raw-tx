@@ -90,11 +90,46 @@ class TransactionTest extends TestCase
         $transaction->getRaw('b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e898', -1);
     }
 
-    public function testBadPrivateKey()
+    /**
+     * @dataProvider invalidPrivateKeyProvider
+     */
+    public function testBadPrivateKey(string $invalidKey): void
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('Incorrect private key');
+        $this->expectExceptionMessage('Private key must be a 1-64 character hexadecimal string');
         $transaction = new Transaction();
-        $transaction->getRaw('');
+        $transaction->getRaw($invalidKey);
+    }
+
+    public static function invalidPrivateKeyProvider(): array
+    {
+        return [
+            'empty string' => [''],
+            'too long' => [str_repeat('a', 65)],
+            'invalid hex chars' => ['g' . str_repeat('0', 63)],
+            'spaces' => [' ' . str_repeat('0', 63)],
+        ];
+    }
+
+    public function testShortPrivateKeyProducesSameSignature(): void
+    {
+        $fullKey = '00b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e8';
+        $shortKey = 'b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e8';
+
+        $tx1 = new Transaction('04', '03f5476a00', '027f4b', '1a8c8adfbe1c59e8b58cc0d515f07b7225f51c72', '2a45907d1bef7c00', '');
+        $tx2 = new Transaction('04', '03f5476a00', '027f4b', '1a8c8adfbe1c59e8b58cc0d515f07b7225f51c72', '2a45907d1bef7c00', '');
+
+        $this->assertSame($tx1->getRaw($fullKey, 1), $tx2->getRaw($shortKey, 1));
+    }
+
+    public function testVeryShortPrivateKeyProducesSameSignature(): void
+    {
+        $fullKey = '0000000000000000000000000000000000000000000000000000000000000001';
+        $shortKey = '1';
+
+        $tx1 = new Transaction('04', '03f5476a00', '027f4b', '1a8c8adfbe1c59e8b58cc0d515f07b7225f51c72', '2a45907d1bef7c00', '');
+        $tx2 = new Transaction('04', '03f5476a00', '027f4b', '1a8c8adfbe1c59e8b58cc0d515f07b7225f51c72', '2a45907d1bef7c00', '');
+
+        $this->assertSame($tx1->getRaw($fullKey, 1), $tx2->getRaw($shortKey, 1));
     }
 }
