@@ -65,8 +65,13 @@ class EIP1559Transaction
         $this->r = '';
         $this->s = '';
 
-        if (strlen($privateKey) != 64) {
-            throw new RuntimeException('Incorrect private key');
+        $len = strlen($privateKey);
+        if ($len === 62) {
+            $privateKey = '00' . $privateKey;
+        }
+
+        if (!preg_match('/^[0-9a-fA-F]{64}$/', $privateKey)) {
+            throw new RuntimeException('Private key is not an expected 62/64 chars hexadecimal string');
         }
 
         $this->sign($privateKey, $chainId);

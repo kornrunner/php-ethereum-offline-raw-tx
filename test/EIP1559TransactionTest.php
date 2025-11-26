@@ -92,9 +92,49 @@ class EIP1559TransactionTest extends TestCase
     public function testBadPrivateKey()
     {
         $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('Incorrect private key');
+        $this->expectExceptionMessage('Private key is not an expected 62/64 chars hexadecimal string');
         $transaction = new EIP1559Transaction();
         $transaction->getRaw('');
     }
 
+    public function testShortPrivateKeyIsAcceptedAndProducesSameSignatureAsFullOne(): void
+    {
+        $tx = new EIP1559Transaction(
+            nonce: '0x0',
+            maxPriorityFeePerGas: '0x01',
+            maxFeePerGas: '0x02',
+            gasLimit: '0x5208',
+            to: '0x1111111111111111111111111111111111111111',
+            value: '0xde0b6b3a7640000', // 1 ETH
+            data: ''
+        );
+
+        $fullKey64  = '00b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e8';
+        $shortKey62 = 'b2f2698dd7343fa5afc96626dee139cb92e58e5d04e855f4c712727bf198e8';
+
+        $signedFrom64 = $tx->getRaw($fullKey64, 1);
+        $signedFrom62 = $tx->getRaw($shortKey62, 1);
+
+        $this->assertSame($signedFrom64, $signedFrom62);
+    }
+
+    public function testRejectsInvalidPrivateKeyLengths(): void
+    {
+        $tx = new EIP1559Transaction();
+
+        $invalidKeys = [
+            '',
+            'a',
+            str_pad('', 60, 'f'),
+            str_pad('', 63, 'f'),
+            str_pad('', 65, 'f'),
+            'gg' . str_pad('', 62, '0'),
+        ];
+
+        foreach ($invalidKeys as $key) {
+            $this->expectException(RuntimeException::class);
+            $this->expectExceptionMessageMatches('/(length|hexadecimal|private key)/i');
+            $tx->getRaw($key, 1);
+        }
+    }
 }
